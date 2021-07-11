@@ -1,2 +1,2 @@
-# react_todo_sample
+# RectSample
 Created with CodeSandbox
