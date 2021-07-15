@@ -2,6 +2,10 @@ import React from "react";
 import "./styles.css";
 
 export const App = () => {
+  const [icompleteTodos, setIncompleteTodos] = useState([
+    "あああああ",
+    "いいいい"
+  ]);
   return (
     <>
       <div>
@@ -11,16 +15,15 @@ export const App = () => {
       <div>
         <p>未完了</p>
         <ul>
-          <div>
-            <li>aaaaa</li>
-            <button>完了</button>
-            <button>削除</button>
-          </div>
-          <div>
-            <li>aaaaa</li>
-            <button>完了</button>
-            <button>削除</button>
-          </div>
+          {icompleteTodos.map((todo) => {
+            return (
+              <div key={todo} class="list-row">
+                <li>aaaaa</li>
+                <button>完了</button>
+                <button>削除</button>
+              </div>
+            );
+          })}
         </ul>
       </div>
       <div>
