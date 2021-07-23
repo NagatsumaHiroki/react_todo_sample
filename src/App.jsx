@@ -30,10 +30,6 @@ export const App = () => {
     setIncompleteTites(newTitles);
     setTodotext("");
     setTodoTitle("");
-    console.log("----登録処理");
-    console.log(setTodoTitle);
-    console.log(icompleteTitles);
-    console.log(todoTitle);
   };
 
   //削除処理
