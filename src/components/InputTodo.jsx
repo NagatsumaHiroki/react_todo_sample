@@ -11,6 +11,7 @@ export const InputTodo = (props) => {
   return (
     <div>
       <p>
+        <label>タイトル:</label>
         <input
           placeholder="タイトルを入力"
           value={todoTitle}
@@ -18,6 +19,7 @@ export const InputTodo = (props) => {
         />
       </p>
       <p>
+        <label>やること:</label>
         <input
           placeholder="TODOを入力"
           value={todoText}

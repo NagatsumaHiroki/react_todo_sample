@@ -8,6 +8,7 @@ export const IncompleteTodos = (props) => {
       {titles.map((title, index) => {
         return (
           <div key={title}>
+            <label>タイトル：</label>
             <span>{title}</span>
           </div>
         );
@@ -15,6 +16,7 @@ export const IncompleteTodos = (props) => {
       {todos.map((todo, index) => {
         return (
           <div key={todo}>
+            <label>やること：</label>
             <span>{todo}</span>
             <div>
               <button onClick={() => onClickComplete(index)}>完了</button>
