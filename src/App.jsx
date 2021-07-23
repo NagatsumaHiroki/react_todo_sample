@@ -5,31 +5,46 @@ import { IncompleteTodos } from "./components/IncompleteTodos";
 import { CompleteTodos } from "./components/CompleteTodos";
 
 export const App = () => {
+  const [todoTitle, setTodoTitle] = useState("");
   const [todoText, setTodotext] = useState("");
+
   const [icompleteTodos, setIncompleteTodos] = useState([]);
+  const [icompleteTitles, setIncompleteTites] = useState([]);
 
   const [completeTodos, setCompleteTodos] = useState([]);
 
   const TotalTodos = icompleteTodos.length + completeTodos.length;
-  console.log(TotalTodos.length);
 
+  //入力時にsetTodotextに値を設定
+  const onChangeTodoTitle = (event) => setTodoTitle(event.target.value);
   //入力時にsetTodotextに値を設定
   const onChangeTodoText = (event) => setTodotext(event.target.value);
 
   //登録処理
   const onClickAdd = () => {
     if (todoText === "") return;
+    if (todoTitle === "") return;
     const newTodos = [...icompleteTodos, todoText];
+    const newTitles = [...icompleteTitles, todoTitle];
     setIncompleteTodos(newTodos);
-    alert(todoText);
+    setIncompleteTites(newTitles);
     setTodotext("");
+    setTodoTitle("");
+    console.log("----登録処理");
+    console.log(setTodoTitle);
+    console.log(icompleteTitles);
+    console.log(todoTitle);
   };
 
   //削除処理
   const onClickDelete = (index) => {
     const newTodos = [...icompleteTodos];
     newTodos.splice(index, 1);
+
+    const newTitles = [...icompleteTitles];
+    newTitles.splice(index, 1);
     setIncompleteTodos(newTodos);
+    setIncompleteTites(newTitles);
   };
 
   //完了処理
@@ -55,8 +70,10 @@ export const App = () => {
   return (
     <>
       <InputTodo
+        titleText={todoTitle}
         todoText={todoText}
-        onChange={onChangeTodoText}
+        onChangeTodoTitle={onChangeTodoTitle}
+        onChangeTodoText={onChangeTodoText}
         onClick={onClickAdd}
       />
       <div>
@@ -65,6 +82,7 @@ export const App = () => {
       </div>
       <IncompleteTodos
         todos={icompleteTodos}
+        titles={icompleteTitles}
         onClickComplete={onClickComplete}
         onClickDelete={onClickDelete}
       />
