@@ -1,8 +1,7 @@
 import React from "react";
-
 export const InputTodo = (props) => {
   const {
-    todoTitle,
+    titleText,
     todoText,
     onChangeTodoTitle,
     onChangeTodoText,
@@ -14,7 +13,7 @@ export const InputTodo = (props) => {
         <label>タイトル:</label>
         <input
           placeholder="タイトルを入力"
-          value={todoTitle}
+          value={titleText}
           onChange={onChangeTodoTitle}
         />
       </p>

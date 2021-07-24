@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css";
+import "./bace.css";
 import { InputTodo } from "./components/InputTodo";
 import { IncompleteTodos } from "./components/IncompleteTodos";
 import { CompleteTodos } from "./components/CompleteTodos";
@@ -9,7 +10,6 @@ export const App = () => {
   const [todoText, setTodotext] = useState("");
 
   const [icompleteTodos, setIncompleteTodos] = useState([]);
-  const [icompleteTitles, setIncompleteTites] = useState([]);
 
   const [completeTodos, setCompleteTodos] = useState([]);
 
@@ -22,12 +22,21 @@ export const App = () => {
 
   //登録処理
   const onClickAdd = () => {
-    if (todoText === "") return;
-    if (todoTitle === "") return;
-    const newTodos = [...icompleteTodos, todoText];
-    const newTitles = [...icompleteTitles, todoTitle];
-    setIncompleteTodos(newTodos);
-    setIncompleteTites(newTitles);
+    if (todoText === "" || todoTitle === "") return;
+    console.log("----ここまできている");
+
+    console.log(todoText);
+    console.log(todoTitle);
+    const Todolist = {};
+    Todolist.todo = todoText;
+    Todolist.title = todoTitle;
+    console.log("-----99999999");
+    console.log(Todolist);
+    Object.entries(Todolist);
+    setIncompleteTodos(Todolist);
+    console.log("-----9888888888");
+    console.log(setIncompleteTodos);
+    console.log(icompleteTodos);
     setTodotext("");
     setTodoTitle("");
   };
@@ -36,11 +45,6 @@ export const App = () => {
   const onClickDelete = (index) => {
     const newTodos = [...icompleteTodos];
     newTodos.splice(index, 1);
-
-    const newTitles = [...icompleteTitles];
-    newTitles.splice(index, 1);
-    setIncompleteTodos(newTodos);
-    setIncompleteTites(newTitles);
   };
 
   //完了処理
@@ -78,7 +82,6 @@ export const App = () => {
       </div>
       <IncompleteTodos
         todos={icompleteTodos}
-        titles={icompleteTitles}
         onClickComplete={onClickComplete}
         onClickDelete={onClickDelete}
       />
