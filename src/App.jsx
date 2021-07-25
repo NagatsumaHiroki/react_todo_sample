@@ -23,19 +23,10 @@ export const App = () => {
   //登録処理
   const onClickAdd = () => {
     if (todoText === "" || todoTitle === "") return;
-    console.log("----ここまできている");
-
-    console.log(todoText);
-    console.log(todoTitle);
-    console.log("-----99999999");
-    //setIncompleteTodos(Todolist);
     setIncompleteTodos([
       ...icompleteTodos,
       { title: todoTitle, todo: todoTitle }
     ]);
-    console.log("-----9888888888");
-    console.log(setIncompleteTodos);
-    console.log(icompleteTodos);
     setTodotext("");
     setTodoTitle("");
   };
