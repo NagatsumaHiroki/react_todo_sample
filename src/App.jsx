@@ -27,13 +27,12 @@ export const App = () => {
 
     console.log(todoText);
     console.log(todoTitle);
-    const Todolist = {};
-    Todolist.todo = todoText;
-    Todolist.title = todoTitle;
     console.log("-----99999999");
-    console.log(Todolist);
-    Object.entries(Todolist);
-    setIncompleteTodos(Todolist);
+    //setIncompleteTodos(Todolist);
+    setIncompleteTodos([
+      ...icompleteTodos,
+      { title: todoTitle, todo: todoTitle }
+    ]);
     console.log("-----9888888888");
     console.log(setIncompleteTodos);
     console.log(icompleteTodos);
@@ -45,6 +44,7 @@ export const App = () => {
   const onClickDelete = (index) => {
     const newTodos = [...icompleteTodos];
     newTodos.splice(index, 1);
+    setIncompleteTodos(newTodos);
   };
 
   //完了処理

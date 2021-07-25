@@ -8,8 +8,9 @@ export const CompleteTodos = (props) => {
       <ul>
         {completeTodos.map((todo, index) => {
           return (
-            <div key={todo}>
-              <li>{todo}</li>
+            <div key={index}>
+              <span>タイトル：{todo.title}</span>
+              <span>やること：{todo.todo}</span>
               <button onClick={() => onClickBack(index)}>戻す</button>
             </div>
           );
